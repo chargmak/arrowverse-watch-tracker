@@ -355,15 +355,6 @@ export default function App() {
             <div className="pt-4 border-t border-zinc-800/50"></div>
 
               <div className="flex items-center justify-between mb-6">
-<div className="relative w-full max-w-md mx-auto">
-  <input 
-    type="text" 
-    placeholder="Search episodes..." 
-    className="w-full px-4 py-2 rounded-lg border border-zinc-800/50 bg-zinc-900/80 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-    ref={searchInputRef}
-    onChange={handleSearchChange}
-  />
-</div>
 <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <Filter className="w-4 h-4 text-zinc-400" />
