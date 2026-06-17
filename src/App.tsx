@@ -352,7 +352,8 @@ export default function App() {
             )}
 
             {/* Mobile-friendly horizontal scroll for filters & actions */}
-            <div className="pt-4 border-t border-zinc-800/50">
+            <div className="pt-4 border-t border-zinc-800/50"></div>
+
               <div className="flex items-center justify-between mb-6">
 <div className="relative w-full max-w-md mx-auto">
   <input 
