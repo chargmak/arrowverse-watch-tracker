@@ -1,1 +1,13 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-zinc-900 text-zinc-100;
+  }
+}
+
+[data-theme="dark"] {
+  @apply bg-zinc-900 text-zinc-100;
+}
