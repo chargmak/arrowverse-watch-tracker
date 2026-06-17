@@ -494,6 +494,7 @@ export default function App() {
     {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
   </div>
                       </div>
+                      </div>
 
                       <AnimatePresence initial={false}>
                         {isExpanded && (
