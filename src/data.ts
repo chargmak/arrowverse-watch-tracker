@@ -5,6 +5,27 @@ export type WatchItem = {
   notes?: string;
 };
 
+/** Estimate the number of individual episodes from a descriptor like "Season 1, Episodes 1-23" */
+export function countEpisodes(descriptor: string): number {
+  // Match patterns like "Episodes 1-23", "Episodes 1-5", "Episode 8"
+  const rangeMatch = descriptor.match(/Episodes?\s+(\d+)\s*-\s*(\d+)/i);
+  if (rangeMatch) {
+    return parseInt(rangeMatch[2]) - parseInt(rangeMatch[1]) + 1;
+  }
+  // Single episode reference (e.g., crossover "Part 1: The Flash 1x08")
+  const singleMatch = descriptor.match(/Episodes?\s+(\d+)/i);
+  if (singleMatch) return 1;
+  // Crossover episodes: count "Part" mentions
+  const partMatches = descriptor.match(/Part\s+\d+/gi);
+  if (partMatches) return partMatches.length;
+  // Patterns like "1x08" (season x episode)
+  const episodeCodes = descriptor.match(/\d+x\d+/g);
+  if (episodeCodes) return episodeCodes.length;
+  // "Season 3 & 4" style
+  if (/Season\s+\d+\s*&\s*\d+/i.test(descriptor)) return 26; // rough estimate for 2 seasons
+  return 1; // fallback
+}
+
 export type Phase = {
   id: string;
   phase: string;
